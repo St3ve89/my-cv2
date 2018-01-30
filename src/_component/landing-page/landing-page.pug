@@ -1,0 +1,25 @@
+-
+    var myFullName = 'Istvan Acs'
+    var myJobTitle = 'unicorn trainer'
+    var socialList = [
+        {icon: 'facebook2', url: 'https://www.facebook.com/istvan.acs.524'},
+        {icon: 'github', url: 'https://github.com/St3ve89'},
+        {icon: 'youtube', url: 'https://www.youtube.com/channel/UCZ-bLe77TumAekQ_51q6TXg?view_as=subscriber'},
+    ]
+
+#landing-page
+.landing-page
+    .landing-page__wrapper
+        h1.landing-page__name=myFullName
+        h2.landing-page__title=myJobTitle
+        ul.landing-page__social
+            each social in socialList
+                li.landing-page__item
+                    label.landing-page__label(for="")
+                        span(class=`my-cv__icon--${social.icon}`)
+        .landing-page__box-body
+            input.landing-page__box-radio(type="radio", name="awesome-radio", checked, id="default-message-radio")
+            each social in socialList
+                input.landing-page__box-radio(type="radio", name="awesome-radio")
+                .landing-page__box-message
+                    a.landing-page__box-link(href=social.url, target="_blank")=social.url
